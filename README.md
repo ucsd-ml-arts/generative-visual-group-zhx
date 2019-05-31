@@ -37,7 +37,7 @@ Any implementation details or notes we need to repeat your work. (WIP)
 
 ## Reference
 
-References to any papers, techniques, repositories you used: (WIP)
-- Papers
-- Repositories
-- Blog posts
+- https://github.com/lmb-freiburg/orion
+- https://github.com/chenhsuanlin/3D-point-cloud-generation
+- https://openai.com/blog/generative-models/
+- https://github.com/meetshah1995/tf-3dgan
