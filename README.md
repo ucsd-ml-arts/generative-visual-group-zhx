@@ -4,6 +4,8 @@ Zhuoqun Xu, zhx068@ucsd.edu
 
 ## Abstract
 
+![Result](/result.png)
+
 The idea is to imitatively create the 3d Model without human involved. By feed with large chunk of 3d model data set, 
 it becomes vending machine for game creaters or visial designer to easily use the rough models and create a better,
 high-definition model from the it.
