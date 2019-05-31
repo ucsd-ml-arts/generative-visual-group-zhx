@@ -31,9 +31,49 @@ Documentation of your results in an appropriate format, both links to files and 
 
 ## Technical Notes
 
-Any implementation details or notes we need to repeat your work. (WIP)
-- Does this code require other pip packages, software, etc?
-- Does it run on some other (non-datahub) platform? (CoLab, etc.)
+1. Get dataset
+
+```
+python download_data.py
+```
+
+Choose either 
+[Princeton's 10-Class aligned CAD models](http://modelnet.cs.princeton.edu/) 
+*bathtub, bed, chair, desk, dresser, monitor, night stand, sofa, table, toilet.*
+
+or 
+
+[Manually aligned 40-Class CAD models](https://github.com/lmb-freiburg/orion) 
+*airplane, bathtub, bed, beanch, bookshelf, bottle, bowl, car, chair, cone, cup, curtain, desk, door, dresser, flower pot, glass box, guitar, keyboard, lamp, laptop, mantel, monitor, night stand, person, piano, plant, radio, range hood, sink, sofa, stairs, stool, table, tent, toilet, tv stand, wardrobe, vase, xbox.*
+
+2. Convert (in Windows)
+```
+python convert_data.py -m ModelNet10/chair -b binvox.exe
+```
+Convert CAD data to voxel format
+
+3. Train
+```
+python 64-3D-RaSGan.py -n chair-1 -d ModelNet10/chair/train -e 2500 -b 24 -sample 10 -save 10 -graph 10 -graph3d 10 -glr 0.0025 -dlr 0.00003
+```
+
+4. Generate
+
+Either
+- 3D graph images
+```
+python convert_to_graph.py -n chair-1
+```
+
+or
+- .obj model
+
+or
+- Render obj to png (make sure installed Blender)
+```
+cd render
+python render_class_view.py -m ../models/1000.obj -o test.png -b "C:/Program Files/Blender Foundation/Blender/blender.exe"
+```
 
 ## Reference
 
@@ -41,3 +81,7 @@ Any implementation details or notes we need to repeat your work. (WIP)
 - https://github.com/chenhsuanlin/3D-point-cloud-generation
 - https://openai.com/blog/generative-models/
 - https://github.com/meetshah1995/tf-3dgan
+- https://github.com/optas/latent_3d_points
+- http://3dgan.csail.mit.edu/
+- http://modelnet.cs.princeton.edu/#
+- https://github.com/google/tf_mesh_renderer
